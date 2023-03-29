@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  udemy-vuex:
+    build:
+      context: .
+      dockerfile: vue.Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+      - "3000:3000"
+    command: vue ui --headless --port 8000 --host 0.0.0.0
+    container_name: udemy-vuex
